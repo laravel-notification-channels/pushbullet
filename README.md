@@ -18,8 +18,6 @@ This package makes it easy to send notifications using [Pushbullet](http://pushb
 
 ## Installation
 
-[PHP](https://php.net) 5.6.4+ is required.
-
 To get the latest version of Pushbullet Notification channel for Laravel 5.3, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
