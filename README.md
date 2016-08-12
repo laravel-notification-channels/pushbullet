@@ -57,11 +57,11 @@ You need to put it to `config/services.php` configuration file. You may copy the
 
 ### Routing Pushbullet notifications
 In order to send notifications to Pushbullet you need to specify recipient for each notifiable entity. There are currently 2 options: pushbullet email or device id of recipient.
-To provide library with correct notification recipient you need to define `routeNotificationForTelegram` method on notifiable entity.
+To provide library with correct notification recipient you need to define `routeNotificationForPushbullet` method on notifiable entity.
 
 #### Sending notification to email:
 ```php
-public function routeNotificationForTelegram()
+public function routeNotificationForPushbullet()
 {
     return new \NotificationChannels\Pushbullet\Targets\Email($this->email);
 }
@@ -69,7 +69,7 @@ public function routeNotificationForTelegram()
 
 #### Sending notification to device id:
 ```php
-public function routeNotificationForTelegram()
+public function routeNotificationForPushbullet()
 {
     return new \NotificationChannels\Pushbullet\Targets\Device($this->pushbullet_device_id);
 }
@@ -78,7 +78,7 @@ public function routeNotificationForTelegram()
 #### Third option:
 Although, this option is not recommended, you might just return a string (email or device id) and library will do its best to determine if it email or device id.
 ```php
-public function routeNotificationForTelegram()
+public function routeNotificationForPushbullet()
 {
     return $this->email;
 }
@@ -91,7 +91,7 @@ On notification entity just add `\NotificationChannels\Pushbullet\PushbulletChan
 In your notification class you also should define `toPushbullet` method which will return instance of `\NotificationChannels\Pushbullet\PushbulletMessage`.
 ```php
 /**
- * Get the telegram representation of the notification.
+ * Get the pushbullet representation of the notification.
  *
  * @param  mixed  $notifiable
  * @return \NotificationChannels\Pushbullet\PushbulletMessage
@@ -101,9 +101,10 @@ public function toPushbullet($notifiable)
     $url = url('/invoice/' . $this->invoice->id);
 
     return (new PushbulletMessage)
-        ->note() // or link()
+        ->link()
         ->title('One of your invoices has been paid!')
-        ->message('Thank you for using our application!');
+        ->message('Thank you for using our application!')
+        ->url($url);
 }
 ```
 
