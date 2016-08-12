@@ -1,0 +1,38 @@
+{
+    "name": "laravel-notification-channels/pushbullet",
+    "description": "Laravel 5.3 Notifications Pushbullet Driver",
+    "homepage": "https://github.com/laravel-notification-channels/pushbullet",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Plekhanov",
+            "email": "alex@plekhanov.us",
+            "homepage": "https://alex.plekhanov.us",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/notifications": "^5.3@dev",
+        "illuminate/support": "^5.3@dev",
+        "illuminate/events": "^5.3@dev"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\Pushbullet\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\Pushbullet\\Test\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
