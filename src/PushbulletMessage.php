@@ -2,7 +2,6 @@
 
 namespace NotificationChannels\Pushbullet;
 
-use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletMessage
@@ -11,7 +10,7 @@ class PushbulletMessage
     const TYPE_LINK = 'link';
 
     /**
-     * Type of message (currently: note or link)
+     * Type of message (currently: note or link).
      *
      * @var string
      */
@@ -21,21 +20,21 @@ class PushbulletMessage
     protected $target;
 
     /**
-     * Notification title
+     * Notification title.
      *
      * @var string
      */
     public $title;
 
     /**
-     * Notification message
+     * Notification message.
      *
      * @var string
      */
     public $message;
 
     /**
-     * Url if notification is of link type
+     * Url if notification is of link type.
      *
      * @var string
      */
@@ -148,7 +147,7 @@ class PushbulletMessage
             'target' => $this->target->getTarget(),
             'type' => $this->type,
             'title' => $this->title,
-            'body' => $this->message
+            'body' => $this->message,
         ];
 
         if ($this->type === static::TYPE_LINK) {
@@ -157,5 +156,4 @@ class PushbulletMessage
 
         return $payload;
     }
-
 }

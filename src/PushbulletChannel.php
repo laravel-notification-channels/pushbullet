@@ -45,7 +45,7 @@ class PushbulletChannel
             return;
         }
 
-        /** @var  \NotificationChannels\Pushbullet\PushbulletMessage  $message */
+        /** @var \NotificationChannels\Pushbullet\PushbulletMessage $message */
         $message = $notification->toPushbullet()->target($target);
 
         $this->pushbullet->send($message->toArray());
@@ -67,7 +67,7 @@ class PushbulletChannel
             return $target;
         }
 
-        $target = (string)$target;
+        $target = (string) $target;
 
         if (filter_var($target, FILTER_VALIDATE_EMAIL) !== false) {
             return new Email($target);
