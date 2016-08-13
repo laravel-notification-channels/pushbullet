@@ -31,7 +31,7 @@ class Pushbullet
     }
 
     /**
-     * Get url to send to pushbullet API
+     * Get url to send to pushbullet API.
      *
      * @return string
      */
@@ -41,19 +41,19 @@ class Pushbullet
     }
 
     /**
-     * Get headers for API callse
+     * Get headers for API callse.
      *
      * @return array
      */
     protected function getHeaders()
     {
         return [
-            'Access-Token' => $this->token
+            'Access-Token' => $this->token,
         ];
     }
 
     /**
-     * Send request to Pushbullet API
+     * Send request to Pushbullet API.
      *
      * @param  array  $params
      * @return \Psr\Http\Message\ResponseInterface
@@ -65,7 +65,7 @@ class Pushbullet
         try {
             return $this->http->post($url, [
                 'json' => $params,
-                'headers' => $this->getHeaders()
+                'headers' => $this->getHeaders(),
             ]);
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::pushbulletRespondedWithAnError($exception);
@@ -73,5 +73,4 @@ class Pushbullet
             throw CouldNotSendNotification::couldNotCommunicateWithPushbullet();
         }
     }
-
 }
