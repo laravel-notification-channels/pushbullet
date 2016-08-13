@@ -2,7 +2,6 @@
 
 namespace NotificationChannels\Pushbullet;
 
-use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletMessage
@@ -11,7 +10,7 @@ class PushbulletMessage
     const TYPE_LINK = 'link';
 
     /**
-     * Type of message (currently: note or link)
+     * Type of message (currently: note or link).
      *
      * @var string
      */
@@ -23,21 +22,21 @@ class PushbulletMessage
     protected $target;
 
     /**
-     * Notification title
+     * Notification title.
      *
      * @var string
      */
     public $title;
 
     /**
-     * Notification message
+     * Notification message.
      *
      * @var string
      */
     public $message;
 
     /**
-     * URL if notification is of link type
+     * URL if notification is of link type.
      *
      * @var string
      */
@@ -55,7 +54,7 @@ class PushbulletMessage
     }
 
     /**
-     * Specify that notification is of `note` type
+     * Specify that notification is of `note` type.
      *
      * @return $this
      */
@@ -67,7 +66,7 @@ class PushbulletMessage
     }
 
     /**
-     * Specify that notification is of `link` type
+     * Specify that notification is of `link` type.
      *
      * @return $this
      */
@@ -79,7 +78,7 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification title
+     * Set notification title.
      *
      * @param  string  $title
      * @return $this
@@ -92,7 +91,7 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification message
+     * Set notification message.
      *
      * @param  string  $message
      * @return $this
@@ -105,7 +104,7 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification url (if notification is of `link` type)
+     * Set notification url (if notification is of `link` type).
      *
      * @param  string  $url
      * @return $this
@@ -118,7 +117,7 @@ class PushbulletMessage
     }
 
     /**
-     * Get array representation of message for pushbullet client
+     * Get array representation of message for pushbullet client.
      *
      * @return array
      */
@@ -128,7 +127,7 @@ class PushbulletMessage
             'target' => $this->target->getTarget(),
             'type' => $this->type,
             'title' => $this->title,
-            'body' => $this->message
+            'body' => $this->message,
         ];
 
         if ($this->type === static::TYPE_LINK) {
@@ -137,5 +136,4 @@ class PushbulletMessage
 
         return $payload;
     }
-
 }

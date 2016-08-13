@@ -7,7 +7,7 @@ use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 class Email implements Targetable
 {
     /**
-     * Recipient email
+     * Recipient email.
      *
      * @var string
      */
@@ -28,7 +28,7 @@ class Email implements Targetable
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getTarget()
     {
