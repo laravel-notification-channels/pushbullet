@@ -46,7 +46,7 @@ class Pushbullet
     protected function getHeaders()
     {
         return [
-            'Access-Token' => $this->token
+            'Access-Token' => $this->token,
         ];
     }
 
@@ -63,7 +63,7 @@ class Pushbullet
         try {
             return $this->httpClient->post($url, [
                 'json' => $params,
-                'headers' => $this->getHeaders()
+                'headers' => $this->getHeaders(),
             ]);
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::pushbulletRespondedWithAnError($exception);
@@ -71,5 +71,4 @@ class Pushbullet
             throw CouldNotSendNotification::couldNotCommunicateWithPushbullet();
         }
     }
-
 }

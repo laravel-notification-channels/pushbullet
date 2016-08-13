@@ -5,7 +5,7 @@ namespace NotificationChannels\Pushbullet\Targets;
 class Device implements Targetable
 {
     /**
-     * Recipient device id
+     * Recipient device id.
      *
      * @var string
      */
