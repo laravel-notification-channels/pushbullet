@@ -2,8 +2,6 @@
 
 namespace NotificationChannels\Pushbullet\Targets;
 
-use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
-
 class Device implements Targetable
 {
     /**
@@ -24,7 +22,7 @@ class Device implements Targetable
     }
 
     /**
-     * @inheritdoc
+     * @return array
      */
     public function getTarget()
     {

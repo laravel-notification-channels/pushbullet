@@ -12,7 +12,7 @@ use NotificationChannels\Pushbullet\Targets\Targetable;
 class PushbulletChannel
 {
     /**
-     * @var  \NotificationChannels\Pushbullet\Pushbullet
+     * @var \NotificationChannels\Pushbullet\Pushbullet
      */
     protected $pushbullet;
 

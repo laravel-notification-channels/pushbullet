@@ -21,7 +21,7 @@ class Email implements Targetable
     public function __construct($email)
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            throw CouldNotSendNotification::providedEmailIsInvalid();
+            throw CouldNotSendNotification::providedEmailIsInvalid($email);
         }
 
         $this->email = $email;

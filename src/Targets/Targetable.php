@@ -5,7 +5,7 @@ namespace NotificationChannels\Pushbullet\Targets;
 interface Targetable
 {
     /**
-     * Get proper target object for pushbullet client
+     * Get proper target object for Pushbullet client
      *
      * @return array
      */

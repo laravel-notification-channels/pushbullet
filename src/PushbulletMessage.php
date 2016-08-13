@@ -17,9 +17,7 @@ class PushbulletMessage
      */
     public $type = 'note';
 
-    /**
-     * @var \NotificationChannels\Pushbullet\Targets\Targetable
-     */
+    /** @var \NotificationChannels\Pushbullet\Targets\Targetable */
     protected $target;
 
     /**
@@ -37,14 +35,33 @@ class PushbulletMessage
     public $message;
 
     /**
-     * URL if notification is of link type
+     * Url if notification is of link type
      *
      * @var string
      */
     public $url;
 
     /**
+     * @param string $message
+     *
+     * @return static
+     */
+    public static function create($message)
+    {
+        return new static($message);
+    }
+
+    /**
+     * @param string $message
+     */
+    public function __construct($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
      * @param  \NotificationChannels\Pushbullet\Targets\Targetable  $targetable
+     *
      * @return $this
      */
     public function target(Targetable $targetable)
@@ -55,7 +72,7 @@ class PushbulletMessage
     }
 
     /**
-     * Specify that notification is of `note` type
+     * Specify that notification is of `note` type.
      *
      * @return $this
      */
@@ -67,7 +84,7 @@ class PushbulletMessage
     }
 
     /**
-     * Specify that notification is of `link` type
+     * Specify that notification is of `link` type.
      *
      * @return $this
      */
@@ -79,9 +96,10 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification title
+     * Set notification title.
      *
      * @param  string  $title
+     *
      * @return $this
      */
     public function title($title)
@@ -92,9 +110,10 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification message
+     * Set notification message.
      *
      * @param  string  $message
+     *
      * @return $this
      */
     public function message($message)
@@ -105,9 +124,10 @@ class PushbulletMessage
     }
 
     /**
-     * Set notification url (if notification is of `link` type)
+     * Set notification url (if notification is of `link` type).
      *
      * @param  string  $url
+     *
      * @return $this
      */
     public function url($url)
@@ -118,7 +138,7 @@ class PushbulletMessage
     }
 
     /**
-     * Get array representation of message for pushbullet client
+     * Get array representation of message for Pushbullet client.
      *
      * @return array
      */

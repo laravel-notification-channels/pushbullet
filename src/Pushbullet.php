@@ -2,21 +2,18 @@
 
 namespace NotificationChannels\Pushbullet;
 
+use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 
 class Pushbullet
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $token;
 
-    /**
-     * @var \GuzzleHttp\Client
-     */
-    protected $http;
+    /** @var \GuzzleHttp\Client */
+    protected $httpClient;
 
     /**
      * Create small Pushbullet client.
@@ -27,11 +24,12 @@ class Pushbullet
     public function __construct($token, HttpClient $httpClient)
     {
         $this->token = $token;
-        $this->http = $httpClient;
+
+        $this->httpClient = $httpClient;
     }
 
     /**
-     * Get url to send to pushbullet API
+     * Get url to send to Pushbullet API?
      *
      * @return string
      */
@@ -41,7 +39,7 @@ class Pushbullet
     }
 
     /**
-     * Get headers for API callse
+     * Get headers for API calls.
      *
      * @return array
      */
@@ -53,7 +51,7 @@ class Pushbullet
     }
 
     /**
-     * Send request to Pushbullet API
+     * Send request to Pushbullet API.
      *
      * @param  array  $params
      * @return \Psr\Http\Message\ResponseInterface
@@ -63,13 +61,13 @@ class Pushbullet
         $url = $this->getPushbulletUrl();
 
         try {
-            return $this->http->post($url, [
+            return $this->httpClient->post($url, [
                 'json' => $params,
                 'headers' => $this->getHeaders()
             ]);
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::pushbulletRespondedWithAnError($exception);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw CouldNotSendNotification::couldNotCommunicateWithPushbullet();
         }
     }

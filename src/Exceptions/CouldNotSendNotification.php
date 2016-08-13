@@ -16,9 +16,9 @@ class CouldNotSendNotification extends RuntimeException
         return new static("Pushbullet responded with an error `{$code} - {$message}`");
     }
 
-    public static function providedEmailIsInvalid()
+    public static function providedEmailIsInvalid($email)
     {
-        return new static('Provided email of `notifiable` is not valid');
+        return new static("Provided email `{$email}` of `notifiable` is not valid");
     }
 
     public static function couldNotSendNotificationWithoutRecipient()
@@ -28,6 +28,6 @@ class CouldNotSendNotification extends RuntimeException
 
     public static function couldNotCommunicateWithPushbullet()
     {
-        return new static('Couldn\'t connect to Pushbullet API.');
+        return new static("Couldn't connect to Pushbullet API.");
     }
 }

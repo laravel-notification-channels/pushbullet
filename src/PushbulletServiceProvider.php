@@ -16,14 +16,9 @@ class PushbulletServiceProvider extends ServiceProvider
         $this->app->when(PushbulletChannel::class)
             ->needs(Pushbullet::class)
             ->give(function () {
-                return new Pushbullet($this->app['config']['services.pushbullet.access_token'], new HttpClient);
-            });
-    }
+                $config = config('services.pushbullet');
 
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
+                return new Pushbullet($config['access_token'], new HttpClient);
+            });
     }
 }
