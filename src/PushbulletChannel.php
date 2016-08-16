@@ -2,8 +2,6 @@
 
 namespace NotificationChannels\Pushbullet;
 
-use NotificationChannels\Pushbullet\Events\MessageWasSent;
-use NotificationChannels\Pushbullet\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Pushbullet\Targets\Device;
 use NotificationChannels\Pushbullet\Targets\Email;
