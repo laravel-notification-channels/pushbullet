@@ -6,6 +6,7 @@
 [![StyleCI](https://styleci.io/repos/65558300/shield)](https://styleci.io/repos/65558300)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/2283805a-e7cc-4e83-8cda-b91b8336cb57.svg?style=flat-square)](https://insight.sensiolabs.com/projects/2283805a-e7cc-4e83-8cda-b91b8336cb57)
 [![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/pushbullet)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/pushbullet/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/pushbullet/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/pushbullet)
 
 This package makes it easy to send notifications using [Pushbullet](http://pushbullet.com) with Laravel 5.3.
@@ -125,7 +126,7 @@ public function toPushbullet($notifiable)
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Testing
-    
+
 ``` bash
 $ composer test
 ```
