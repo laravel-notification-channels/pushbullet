@@ -39,18 +39,10 @@ class PushbulletChannel
             return;
         }
 
-        $shouldNotSendMessage = event(new SendingMessage($notifiable, $notification), [], true) === false;
-
-        if ($shouldNotSendMessage) {
-            return;
-        }
-
         /** @var \NotificationChannels\Pushbullet\PushbulletMessage $message */
         $message = $notification->toPushbullet()->target($target);
 
         $this->pushbullet->send($message->toArray());
-
-        event(new MessageWasSent($notifiable, $notification));
     }
 
     /**
