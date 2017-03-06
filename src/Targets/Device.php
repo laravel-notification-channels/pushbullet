@@ -22,7 +22,7 @@ class Device implements Targetable
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getTarget()
     {
