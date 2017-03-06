@@ -82,8 +82,18 @@ public function routeNotificationForPushbullet()
 }
 ```
 
-#### Third option:
-Although, this option is not recommended, you might just return a string (email or device id) and library will do its best to determine if it email or device id.
+#### Sending notification to all subscribers of channel that has tag:
+```php
+public function routeNotificationForPushbullet()
+{
+    return new \NotificationChannels\Pushbullet\Targets\Channel($this->channel_tag);
+}
+```
+
+#### Fourth option (**deprecated**):
+Although, this option is not recommended, you might just return a string (email or device id) and library will do its best to determine if it is email or device id.
+
+**Warning!** This option doesn't give you possibility to have channel tag guessed, only email or device id.
 ```php
 public function routeNotificationForPushbullet()
 {
