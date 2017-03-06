@@ -1,6 +1,6 @@
 {
     "name": "laravel-notification-channels/pushbullet",
-    "description": "Laravel 5.3 Notifications Pushbullet Driver",
+    "description": "Laravel 5.3+ Notifications Pushbullet Driver",
     "homepage": "https://github.com/laravel-notification-channels/pushbullet",
     "license": "MIT",
     "authors": [
@@ -14,8 +14,8 @@
     "require": {
         "php": ">=5.6.4",
         "guzzlehttp/guzzle": "^6.2",
-        "illuminate/notifications": "5.3.*",
-        "illuminate/support": "5.1.*|5.2.*|5.3.*"
+        "illuminate/notifications": "5.3.*|5.4.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*"
     },
     "require-dev": {
         "mockery/mockery": "^0.9.5",

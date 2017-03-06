@@ -40,7 +40,7 @@ class PushbulletChannel
         }
 
         /** @var \NotificationChannels\Pushbullet\PushbulletMessage $message */
-        $message = $notification->toPushbullet()->target($target);
+        $message = $notification->toPushbullet($notifiable)->target($target);
 
         $this->pushbullet->send($message->toArray());
     }

@@ -1,4 +1,4 @@
-# Pushbullet notification channel for Laravel 5.3
+# Pushbullet notification channel for Laravel 5.3+
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/pushbullet)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/pushbullet/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/pushbullet/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/pushbullet)
 
-This package makes it easy to send notifications using [Pushbullet](http://pushbullet.com) with Laravel 5.3.
+This package makes it easy to send notifications using [Pushbullet](http://pushbullet.com) with Laravel 5.3+.
 
 ## Contents
 
