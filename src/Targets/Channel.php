@@ -5,14 +5,14 @@ namespace NotificationChannels\Pushbullet\Targets;
 class Channel implements Targetable
 {
     /**
-     * PushBullet channel tag
+     * PushBullet channel tag.
      *
      * @var string
      */
     protected $channelTag;
 
     /**
-     * Set channel tag
+     * Set channel tag.
      *
      * @param  string  $channelTag
      */
