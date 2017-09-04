@@ -38,14 +38,15 @@ Or you can manually update your require block and run `composer update` if you c
 ```json
 {
     "require": {
-        "laravel-notification-channels/pushbullet": "^0.2"
-    }
+        "laravel-notification-channels/pushbullet": "^0.3"
+   }
 }
 ```
 
 You will also need to install `guzzlehttp/guzzle` http client to send request to Pushbullet API.
 
-Once package is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+If you use Laravel 5.5 you don't need the following step.
+If not, once package is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `NotificationChannels\Pushbullet\PushbulletServiceProvider::class`
 
