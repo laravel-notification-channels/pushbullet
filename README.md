@@ -91,17 +91,6 @@ public function routeNotificationForPushbullet()
 }
 ```
 
-#### Fourth option (**deprecated**):
-Although, this option is not recommended, you might just return a string (email or device id) and library will do its best to determine if it is email or device id.
-
-**Warning!** This option doesn't give you possibility to have channel tag guessed, only email or device id.
-```php
-public function routeNotificationForPushbullet()
-{
-    return $this->email;
-}
-```
-
 ### `via` Method
 On notification entity just add `\NotificationChannels\Pushbullet\PushbulletChannel::class` item to array that is returned from `via` method.
 
