@@ -1,3 +1,4 @@
 preset: laravel
 
-linting: true
+enabled:
+  - length_ordered_imports
