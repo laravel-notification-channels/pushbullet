@@ -45,7 +45,7 @@ Or you can manually update your require block and run `composer update` if you c
 
 You will also need to install `guzzlehttp/guzzle` http client to send request to Pushbullet API.
 
-If you use Laravel 5.5 you don't need the following step.
+If you use Laravel 5.5 or higher, you don't need the following step.
 If not, once package is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `NotificationChannels\Pushbullet\PushbulletServiceProvider::class`
