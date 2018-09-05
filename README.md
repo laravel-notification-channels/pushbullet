@@ -38,8 +38,8 @@ Or you can manually update your require block and run `composer update` if you c
 ```json
 {
     "require": {
-        "laravel-notification-channels/pushbullet": "^1.0"
-   }
+        "laravel-notification-channels/pushbullet": "^1.0"
+    }
 }
 ```
 
