@@ -2,9 +2,10 @@
 
 namespace NotificationChannels\Pushbullet\Test;
 
+use PHPUnit\Framework\TestCase;
 use NotificationChannels\Pushbullet\PushbulletMessage;
 
-class PushbulletMessageTest extends \PHPUnit_Framework_TestCase
+class PushbulletMessageTest extends TestCase
 {
     /** @test */
     public function message_can_be_instantiated_with_text()
