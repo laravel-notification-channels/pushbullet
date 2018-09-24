@@ -28,7 +28,7 @@ class Email implements Targetable
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getTarget(): array
     {

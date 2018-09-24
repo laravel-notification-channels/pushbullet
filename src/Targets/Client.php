@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet\Targets;
 
@@ -16,7 +18,7 @@ class Client implements Targetable
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getTarget(): array
     {

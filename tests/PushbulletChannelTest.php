@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet\Test;
 
@@ -7,8 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use PHPUnit_Framework_MockObject_MockObject;
 use NotificationChannels\Pushbullet\Targets\Email;
-use NotificationChannels\Pushbullet\Targets\Device;
 use NotificationChannels\Pushbullet\Targets\Client;
+use NotificationChannels\Pushbullet\Targets\Device;
 use NotificationChannels\Pushbullet\Targets\Channel;
 use NotificationChannels\Pushbullet\PushbulletClient;
 use NotificationChannels\Pushbullet\PushbulletChannel;
@@ -24,7 +26,7 @@ class PushbulletChannelTest extends TestCase
     private $subject;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function setUp()
     {
@@ -67,17 +69,19 @@ class PushbulletChannelTest extends TestCase
      */
     public function it_sends_notification_to_targetable(Targetable $target)
     {
-        $notifiable = new class ($target) {
+        $notifiable = new class($target) {
             use Notifiable;
 
             /** @var Targetable */
             private $target;
 
-            public function __construct(Targetable $target) {
+            public function __construct(Targetable $target)
+            {
                 $this->target = $target;
             }
 
-            public function routeNotificationFor(): Targetable {
+            public function routeNotificationFor(): Targetable
+            {
                 return $this->target;
             }
         };
@@ -87,7 +91,7 @@ class PushbulletChannelTest extends TestCase
             'type' => 'link',
             'title' => 'Visit the website',
             'body' => 'Hello',
-            'url' => 'https://example.com'
+            'url' => 'https://example.com',
         ];
 
         $this->pushbullet->expects($this->once())

@@ -22,7 +22,7 @@ class Channel implements Targetable
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getTarget(): array
     {
