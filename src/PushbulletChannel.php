@@ -1,68 +1,57 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Pushbullet\Targets\Email;
-use NotificationChannels\Pushbullet\Targets\Device;
 use NotificationChannels\Pushbullet\Targets\Targetable;
+use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 
 class PushbulletChannel
 {
-    /**
-     * @var \NotificationChannels\Pushbullet\Pushbullet
-     */
-    protected $pushbullet;
+    /** @var \NotificationChannels\Pushbullet\PushbulletClient */
+    protected $pushbulletClient;
 
     /**
      * Create pushbullet notification channel.
-     * @param  \NotificationChannels\Pushbullet\Pushbullet  $pushbullet
+     * @param  \NotificationChannels\Pushbullet\PushbulletClient  $pushbulletClient
      */
-    public function __construct(Pushbullet $pushbullet)
+    public function __construct(PushbulletClient $pushbulletClient)
     {
-        $this->pushbullet = $pushbullet;
+        $this->pushbulletClient = $pushbulletClient;
     }
 
     /**
      * Send the given notification.
      *
      * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
+     * @param  \Illuminate\Notifications\Notification  $notification
      *
      * @throws \NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $target = $this->getTarget($notifiable)) {
-            return;
-        }
+        $target = $this->getTarget($notifiable);
 
         /** @var \NotificationChannels\Pushbullet\PushbulletMessage $message */
-        $message = $notification->toPushbullet($notifiable)->target($target);
+        $message = $notification->toPushbullet($notifiable)
+            ->target($target);
 
-        $this->pushbullet->send($message->toArray());
+        $this->pushbulletClient->send($message->toArray());
     }
 
     /**
      * @param $notifiable
-     * @return  \NotificationChannels\Pushbullet\Targets\Targetable|void
+     * @return  \NotificationChannels\Pushbullet\Targets\Targetable
+     * @throws  \NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification
      */
-    protected function getTarget($notifiable)
+    protected function getTarget($notifiable): Targetable
     {
-        if (! $target = $notifiable->routeNotificationFor('pushbullet')) {
-            return;
-        }
+        $target = $notifiable->routeNotificationFor('pushbullet');
 
         if ($target instanceof Targetable) {
             return $target;
         }
 
-        $target = (string) $target;
-
-        if (filter_var($target, FILTER_VALIDATE_EMAIL) !== false) {
-            return new Email($target);
-        }
-
-        return new Device($target);
+        throw CouldNotSendNotification::invalidTargetSpecifiedByNotifiable();
     }
 }

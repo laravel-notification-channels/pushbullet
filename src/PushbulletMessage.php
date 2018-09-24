@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet;
 
@@ -30,7 +30,7 @@ class PushbulletMessage
     public $message;
 
     /**
-     * Url if notification is of link type.
+     * Url for the link type notification.
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class PushbulletMessage
      *
      * @return static
      */
-    public static function create($message)
+    public static function create(string $message): self
     {
         return new static($message);
     }
@@ -49,7 +49,7 @@ class PushbulletMessage
     /**
      * @param string $message
      */
-    public function __construct($message)
+    public function __construct(string $message)
     {
         $this->message = $message;
     }
@@ -59,7 +59,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function target(Targetable $targetable)
+    public function target(Targetable $targetable): self
     {
         $this->target = $targetable;
 
@@ -71,7 +71,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function note()
+    public function note(): self
     {
         $this->type = static::TYPE_NOTE;
 
@@ -83,7 +83,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function link()
+    public function link(): self
     {
         $this->type = static::TYPE_LINK;
 
@@ -97,7 +97,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function title($title)
+    public function title(string $title): self
     {
         $this->title = $title;
 
@@ -111,7 +111,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function message($message)
+    public function message(string $message): self
     {
         $this->message = $message;
 
@@ -125,7 +125,7 @@ class PushbulletMessage
      *
      * @return $this
      */
-    public function url($url)
+    public function url(string $url): self
     {
         $this->url = $url;
 
@@ -137,7 +137,7 @@ class PushbulletMessage
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $payload = [
             'target' => $this->target->getTarget(),
@@ -156,7 +156,7 @@ class PushbulletMessage
     /**
      * @return bool
      */
-    private function isLink(): bool
+    public function isLink(): bool
     {
         return $this->type === static::TYPE_LINK;
     }

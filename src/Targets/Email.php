@@ -28,9 +28,9 @@ class Email implements Targetable
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
-    public function getTarget()
+    public function getTarget(): array
     {
         return ['email' => $this->email];
     }

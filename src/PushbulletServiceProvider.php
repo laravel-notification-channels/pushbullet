@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet;
 
@@ -14,11 +14,11 @@ class PushbulletServiceProvider extends ServiceProvider
     {
         // Bootstrap code here.
         $this->app->when(PushbulletChannel::class)
-            ->needs(Pushbullet::class)
+            ->needs(PushbulletClient::class)
             ->give(function () {
-                $config = config('services.pushbullet');
+                $config = $this->app['config']['services.pushbullet'];
 
-                return new Pushbullet($config['access_token'], new HttpClient);
+                return new PushbulletClient($config['access_token'], new HttpClient);
             });
     }
 }

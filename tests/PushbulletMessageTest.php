@@ -26,21 +26,19 @@ class PushbulletMessageTest extends TestCase
     /** @test */
     public function message_can_be_set_to_link_type()
     {
-        $message = new PushbulletMessage('Hello');
-
-        $message->link();
+        $message = (new PushbulletMessage('Hello'))
+            ->link();
 
         $this->assertEquals(PushbulletMessage::TYPE_LINK, $message->type);
+        $this->assertTrue($message->isLink());
     }
 
     /** @test */
     public function message_can_be_set_to_note_type()
     {
-        $message = new PushbulletMessage('Hello');
-
-        $message->link();
-
-        $message->note();
+        $message = (new PushbulletMessage('Hello'))
+            ->link()
+            ->note();
 
         $this->assertEquals(PushbulletMessage::TYPE_NOTE, $message->type);
     }
@@ -48,9 +46,8 @@ class PushbulletMessageTest extends TestCase
     /** @test */
     public function message_can_have_title_set()
     {
-        $message = new PushbulletMessage('Hello');
-
-        $message->title('Title');
+        $message = (new PushbulletMessage('Hello'))
+            ->title('Title');
 
         $this->assertEquals('Title', $message->title);
     }
@@ -58,9 +55,8 @@ class PushbulletMessageTest extends TestCase
     /** @test */
     public function message_can_have_message_set()
     {
-        $message = new PushbulletMessage('Hello');
-
-        $message->message('Different message');
+        $message = (new PushbulletMessage('Hello'))
+            ->message('Different message');
 
         $this->assertEquals('Different message', $message->message);
     }
@@ -68,9 +64,8 @@ class PushbulletMessageTest extends TestCase
     /** @test */
     public function message_can_have_url_set()
     {
-        $message = new PushbulletMessage('Hello');
-
-        $message->url('http://example.com');
+        $message = (new PushbulletMessage('Hello'))
+            ->url('http://example.com');
 
         $this->assertEquals('http://example.com', $message->url);
     }

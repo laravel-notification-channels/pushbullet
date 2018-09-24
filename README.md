@@ -64,8 +64,8 @@ You need to put it to `config/services.php` configuration file. You may copy the
 ## Usage
 
 ### Routing Pushbullet notifications
-In order to send notifications to Pushbullet you need to specify recipient for each notifiable entity. There are currently 2 options: pushbullet email or device id of recipient.
-To provide library with correct notification recipient you need to define `routeNotificationForPushbullet` method on notifiable entity.
+In order to send notifications to Pushbullet you need to specify recipient for each notifiable entity. There are currently 4 options: pushbullet email, device id, channel tag or client id.
+To provide library with correct notification recipient you need to define `routeNotificationForPushbullet` method on notifiable entity and return instance of `\NotificationChannels\Pushbullet\Targets\Targetable` interface.
 
 #### Sending notification to email:
 ```php
@@ -88,6 +88,14 @@ public function routeNotificationForPushbullet()
 public function routeNotificationForPushbullet()
 {
     return new \NotificationChannels\Pushbullet\Targets\Channel($this->channel_tag);
+}
+```
+
+#### Sending notification to all users who have granted access to your OAuth client that has this id:
+```php
+public function routeNotificationForPushbullet()
+{
+    return new \NotificationChannels\Pushbullet\Targets\Client($this->client_id);
 }
 ```
 
@@ -117,9 +125,9 @@ public function toPushbullet($notifiable)
 #### Available Message methods
 - `note()`: set notification type to note (title and message for notification are available)
 - `link()`: set notification type to link (title, message and url are available)
-- `title($title)`: (string) set notification title
-- `message($message)`: (string) set notification message
-- `url($url)`: (string) set notification url (will be in notification if type is `link`)
+- `title(string $title)`: set notification title
+- `message(string $message)`: set notification message
+- `url(string $url)`: set notification url (will be in notification if type is `link`)
 
 ## Changelog
 
