@@ -9,11 +9,7 @@ class PushbulletMessage
     const TYPE_NOTE = 'note';
     const TYPE_LINK = 'link';
 
-    /**
-     * Type of message (currently: note or link).
-     *
-     * @var string
-     */
+    /** @var string [note|link] */
     public $type = 'note';
 
     /** @var \NotificationChannels\Pushbullet\Targets\Targetable */
@@ -150,10 +146,18 @@ class PushbulletMessage
             'body' => $this->message,
         ];
 
-        if ($this->type === static::TYPE_LINK) {
+        if ($this->isLink()) {
             $payload['url'] = $this->url;
         }
 
         return $payload;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isLink(): bool
+    {
+        return $this->type === static::TYPE_LINK;
     }
 }
