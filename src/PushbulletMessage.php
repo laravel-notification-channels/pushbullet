@@ -176,7 +176,7 @@ class PushbulletMessage
             'body' => $this->message,
         ];
 
-        if (!$this->toAll) {
+        if (! $this->toAll) {
             $payload['target'] = $this->target->getTarget();
         }
 
