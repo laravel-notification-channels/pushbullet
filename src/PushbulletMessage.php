@@ -41,6 +41,13 @@ class PushbulletMessage
     public $url;
 
     /**
+     * Push notification to all devices.
+     *
+     * @var bool
+     */
+    public $toAll = false;
+
+    /**
      * @param string $message
      *
      * @return static
@@ -137,6 +144,26 @@ class PushbulletMessage
     }
 
     /**
+     * @param mixed $toAll
+     *
+     * @return PushbulletMessage
+     */
+    public function toAll($toAll = true)
+    {
+        $this->toAll = $toAll;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToAll()
+    {
+        return $this->toAll;
+    }
+
+    /**
      * Get array representation of message for Pushbullet client.
      *
      * @return array
@@ -144,11 +171,14 @@ class PushbulletMessage
     public function toArray()
     {
         $payload = [
-            'target' => $this->target->getTarget(),
             'type' => $this->type,
             'title' => $this->title,
             'body' => $this->message,
         ];
+
+        if (!$this->toAll) {
+            $payload['target'] = $this->target->getTarget();
+        }
 
         if ($this->type === static::TYPE_LINK) {
             $payload['url'] = $this->url;

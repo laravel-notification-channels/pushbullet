@@ -73,4 +73,13 @@ class PushbulletMessageTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('http://example.com', $message->url);
     }
+
+    /** @test */
+    public function message_can_be_send_too_all()
+    {
+        $message = new PushbulletMessage('Hello');
+        $message->toAll();
+
+        $this->assertTrue($message->toAll);
+    }
 }
