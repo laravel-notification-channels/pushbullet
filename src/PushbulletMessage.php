@@ -144,16 +144,31 @@ class PushbulletMessage
     public function toArray()
     {
         $payload = [
-            'target' => $this->target->getTarget(),
             'type' => $this->type,
             'title' => $this->title,
             'body' => $this->message,
         ];
 
-        if ($this->type === static::TYPE_LINK) {
-            $payload['url'] = $this->url;
-        }
+        return array_merge(
+            $payload,
+            $this->target->getTarget(),
+            $this->getUrlParameter()
+        );
+    }
 
-        return $payload;
+    /**
+     * @return bool
+     */
+    private function isLink()
+    {
+        return $this->type === static::TYPE_LINK;
+    }
+
+    /**
+     * @return array
+     */
+    private function getUrlParameter()
+    {
+        return $this->isLink() ? ['url' => $this->url] : [];
     }
 }
