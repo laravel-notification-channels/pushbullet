@@ -3,7 +3,9 @@
 namespace NotificationChannels\Pushbullet\Test;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use NotificationChannels\Pushbullet\PushbulletMessage;
+use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletMessageTest extends TestCase
 {
@@ -73,5 +75,31 @@ class PushbulletMessageTest extends TestCase
         $message->url('http://example.com');
 
         $this->assertEquals('http://example.com', $message->url);
+    }
+
+    /** @test */
+    public function it_can_be_cast_to_array()
+    {
+        $message = new PushbulletMessage('Message');
+
+        /** @var MockObject|Targetable $target */
+        $target = $this->createMock(Targetable::class);
+        $target->expects($this->once())
+            ->method('getTarget')
+            ->willReturn(['tag' => 'xcv']);
+
+        $message
+            ->title('Hello')
+            ->target($target);
+
+        $this->assertEquals(
+            [
+                'type' => 'note',
+                'title' => 'Hello',
+                'body' => 'Message',
+                'tag' => 'xcv',
+            ],
+            $message->toArray()
+        );
     }
 }
