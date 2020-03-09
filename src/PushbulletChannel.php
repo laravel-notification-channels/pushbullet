@@ -3,8 +3,8 @@
 namespace NotificationChannels\Pushbullet;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Pushbullet\Targets\Email;
 use NotificationChannels\Pushbullet\Targets\Device;
+use NotificationChannels\Pushbullet\Targets\Email;
 use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletChannel

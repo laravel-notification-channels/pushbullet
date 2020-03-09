@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Pushbullet\Exceptions;
 
-use RuntimeException;
 use GuzzleHttp\Exception\ClientException;
+use RuntimeException;
 
 class CouldNotSendNotification extends RuntimeException
 {

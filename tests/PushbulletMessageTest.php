@@ -2,10 +2,10 @@
 
 namespace NotificationChannels\Pushbullet\Test;
 
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\MockObject\MockObject;
 use NotificationChannels\Pushbullet\PushbulletMessage;
 use NotificationChannels\Pushbullet\Targets\Targetable;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 class PushbulletMessageTest extends TestCase
 {
