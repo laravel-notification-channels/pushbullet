@@ -1,5 +1,7 @@
 <?php
 
+ declare(strict_types=1);
+
 namespace NotificationChannels\Pushbullet;
 
 use Exception;
@@ -10,10 +12,10 @@ use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 class Pushbullet
 {
     /** @var string */
-    protected $token;
+    private $token;
 
     /** @var \GuzzleHttp\Client */
-    protected $httpClient;
+    private $httpClient;
 
     /**
      * Create small Pushbullet client.
@@ -24,7 +26,6 @@ class Pushbullet
     public function __construct($token, HttpClient $httpClient)
     {
         $this->token = $token;
-
         $this->httpClient = $httpClient;
     }
 
@@ -33,7 +34,7 @@ class Pushbullet
      *
      * @return string
      */
-    protected function getPushbulletUrl()
+    private function getPushbulletUrl(): string
     {
         return 'https://api.pushbullet.com/v2/pushes';
     }
@@ -43,7 +44,7 @@ class Pushbullet
      *
      * @return array
      */
-    protected function getHeaders()
+    private function getHeaders(): array
     {
         return [
             'Access-Token' => $this->token,
