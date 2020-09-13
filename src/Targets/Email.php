@@ -11,7 +11,7 @@ class Email implements Targetable
      *
      * @var string
      */
-    protected $email;
+    private $email;
 
     /**
      * Set recipient email.

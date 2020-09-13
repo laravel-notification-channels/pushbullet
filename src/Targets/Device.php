@@ -9,7 +9,7 @@ class Device implements Targetable
      *
      * @var string
      */
-    protected $deviceId;
+    private $deviceId;
 
     /**
      * Set recipient device id.

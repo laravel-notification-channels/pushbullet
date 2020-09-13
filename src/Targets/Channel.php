@@ -9,7 +9,7 @@ class Channel implements Targetable
      *
      * @var string
      */
-    protected $channelTag;
+    private $channelTag;
 
     /**
      * Set channel tag.
