@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NotificationChannels\Pushbullet;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Pushbullet\Targets\Device;
-use NotificationChannels\Pushbullet\Targets\Email;
 use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletChannel
@@ -12,7 +12,7 @@ class PushbulletChannel
     /**
      * @var \NotificationChannels\Pushbullet\Pushbullet
      */
-    protected $pushbullet;
+    private $pushbullet;
 
     /**
      * Create pushbullet notification channel.
@@ -31,7 +31,7 @@ class PushbulletChannel
      *
      * @throws \NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification
      */
-    public function send($notifiable, Notification $notification)
+    public function send($notifiable, Notification $notification): void
     {
         if (! $target = $this->getTarget($notifiable)) {
             return;
@@ -45,9 +45,10 @@ class PushbulletChannel
 
     /**
      * @param $notifiable
+     *
      * @return  \NotificationChannels\Pushbullet\Targets\Targetable|void
      */
-    protected function getTarget($notifiable)
+    private function getTarget($notifiable): ?Targetable
     {
         if (! $target = $notifiable->routeNotificationFor('pushbullet')) {
             return;
@@ -56,13 +57,5 @@ class PushbulletChannel
         if ($target instanceof Targetable) {
             return $target;
         }
-
-        $target = (string) $target;
-
-        if (filter_var($target, FILTER_VALIDATE_EMAIL) !== false) {
-            return new Email($target);
-        }
-
-        return new Device($target);
     }
 }

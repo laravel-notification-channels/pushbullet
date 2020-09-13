@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NotificationChannels\Pushbullet\Test;
 
 use NotificationChannels\Pushbullet\PushbulletMessage;
@@ -9,6 +11,14 @@ use PHPUnit\Framework\TestCase;
 
 class PushbulletMessageTest extends TestCase
 {
+    /** @test */
+    public function message_can_be_created_by_static_function()
+    {
+        $message = PushbulletMessage::create('Hello');
+
+        $this->assertEquals('Hello', $message->message);
+    }
+
     /** @test */
     public function message_can_be_instantiated_with_text()
     {
@@ -22,7 +32,7 @@ class PushbulletMessageTest extends TestCase
     {
         $message = new PushbulletMessage('Hello');
 
-        $this->assertEquals(PushbulletMessage::TYPE_NOTE, $message->type);
+        $this->assertEquals('note', $message->type);
     }
 
     /** @test */
@@ -32,7 +42,7 @@ class PushbulletMessageTest extends TestCase
 
         $message->link();
 
-        $this->assertEquals(PushbulletMessage::TYPE_LINK, $message->type);
+        $this->assertEquals('link', $message->type);
     }
 
     /** @test */
@@ -44,7 +54,7 @@ class PushbulletMessageTest extends TestCase
 
         $message->note();
 
-        $this->assertEquals(PushbulletMessage::TYPE_NOTE, $message->type);
+        $this->assertEquals('note', $message->type);
     }
 
     /** @test */
