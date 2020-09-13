@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/pushbullet/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/pushbullet/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/pushbullet)
 
-This package makes it easy to send notifications using [Pushbullet](http://pushbullet.com) with Laravel 5.5+, 6.x and 7.x.
+This package makes it easy to send notifications using [Pushbullet](http://pushbullet.com) with Laravel 5.5+, 6.x, 7.x and 8.x.
 
 ## Contents
 

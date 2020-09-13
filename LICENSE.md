@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright (c) Oleksii Plekhanov <alex@plekhanov.us>
+Copyright (c) Oleksii Plekhanov <alex@plekhanov.dev>
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
