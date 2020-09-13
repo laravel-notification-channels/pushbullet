@@ -9,5 +9,5 @@ interface Targetable
      *
      * @return array
      */
-    public function getTarget();
+    public function getTarget(): array;
 }

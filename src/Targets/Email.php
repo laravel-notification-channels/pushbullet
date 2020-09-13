@@ -30,7 +30,7 @@ class Email implements Targetable
     /**
      * {@inheritdoc}
      */
-    public function getTarget()
+    public function getTarget(): array
     {
         return ['email' => $this->email];
     }

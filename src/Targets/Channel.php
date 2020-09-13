@@ -24,7 +24,7 @@ class Channel implements Targetable
     /**
      * {@inheritdoc}
      */
-    public function getTarget()
+    public function getTarget(): array
     {
         return ['channel_tag' => $this->channelTag];
     }

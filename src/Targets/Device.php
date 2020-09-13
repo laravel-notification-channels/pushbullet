@@ -24,7 +24,7 @@ class Device implements Targetable
     /**
      * {@inheritdoc}
      */
-    public function getTarget()
+    public function getTarget(): array
     {
         return ['device_iden' => $this->deviceId];
     }
