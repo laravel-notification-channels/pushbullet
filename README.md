@@ -84,6 +84,14 @@ public function routeNotificationForPushbullet()
 }
 ```
 
+#### Sending notification to all of the user's devices
+```php
+public function routeNotificationForPushbullet()
+{
+    return new \NotificationChannels\Pushbullet\Targets\UserDevices();
+}
+```
+
 ### `via` Method
 On notification entity just add `\NotificationChannels\Pushbullet\PushbulletChannel::class` item to array that is returned from `via` method.
 
