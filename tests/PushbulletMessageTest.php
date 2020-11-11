@@ -7,6 +7,9 @@ use NotificationChannels\Pushbullet\Targets\Targetable;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \NotificationChannels\Pushbullet\PushbulletMessage
+ */
 class PushbulletMessageTest extends TestCase
 {
     /** @test */
