@@ -15,7 +15,6 @@ class PushbulletChannel
     private $pushbullet;
 
     /**
-     * Create pushbullet notification channel.
      * @param  \NotificationChannels\Pushbullet\Pushbullet  $pushbullet
      */
     public function __construct(Pushbullet $pushbullet)

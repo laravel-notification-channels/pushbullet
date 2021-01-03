@@ -1,33 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NotificationChannels\Pushbullet\Exceptions;
 
-use GuzzleHttp\Exception\ClientException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
 class CouldNotSendNotification extends RuntimeException
 {
-    public static function pushbulletRespondedWithAnError(ClientException $exception)
+    public static function pushbulletRespondedWithAnError(ResponseInterface $response): self
     {
-        $code = $exception->getResponse()->getStatusCode();
+        $code = $response->getStatusCode();
 
-        $message = $exception->getResponse()->getBody();
+        $message = $response->getBody();
 
-        return new static("Pushbullet responded with an error `{$code} - {$message}`");
+        return new self("Pushbullet responded with error: `{$code} - {$message}`.");
     }
 
-    public static function providedEmailIsInvalid($email)
+    public static function providedEmailIsInvalid(string $email): self
     {
-        return new static("Provided email `{$email}` of `notifiable` is not valid");
+        return new self("Provided email `{$email}` of `notifiable` is not valid.");
     }
 
-    public static function couldNotSendNotificationWithoutRecipient()
+    public static function couldNotCommunicateWithPushbullet(): self
     {
-        return new static('Neither device id nor email of recipient was not specified');
-    }
-
-    public static function couldNotCommunicateWithPushbullet()
-    {
-        return new static("Couldn't connect to Pushbullet API.");
+        return new self('Could not connect to Pushbullet API.');
     }
 }

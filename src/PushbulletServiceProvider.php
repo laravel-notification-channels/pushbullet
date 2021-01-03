@@ -9,11 +9,11 @@ use Illuminate\Support\ServiceProvider;
 
 class PushbulletServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->app->when(PushbulletChannel::class)
             ->needs(Pushbullet::class)
-            ->give(function () {
+            ->give(static function (): Pushbullet {
                 $config = config('services.pushbullet');
 
                 return new Pushbullet($config['access_token'], new HttpClient());
