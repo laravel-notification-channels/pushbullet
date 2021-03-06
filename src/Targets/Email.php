@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NotificationChannels\Pushbullet\Targets;
 
 use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
