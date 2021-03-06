@@ -49,20 +49,12 @@ class PushbulletChannel
      */
     private function getTarget($notifiable): ?Targetable
     {
-        if (! $target = $notifiable->routeNotificationFor('pushbullet')) {
-            return null;
-        }
+        $target = $notifiable->routeNotificationFor('pushbullet');
 
         if ($target instanceof Targetable) {
             return $target;
         }
 
-        $target = (string) $target;
-
-        if (filter_var($target, FILTER_VALIDATE_EMAIL) !== false) {
-            return new Email($target);
-        }
-
-        return new Device($target);
+        return null;
     }
 }
