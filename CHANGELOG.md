@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-notification-channels/pushbullet` will be documented in this file
 
+## 1.2.1 - 2021-03-06
+### Changed
+- Performed minor refactoring to have stricter code
+
 ## 1.2.0 - 2020-09-27
 ### Added
 - Allowed sending push to all user's devices
