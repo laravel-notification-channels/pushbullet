@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-notification-channels/pushbullet` will be documented in this file
 
+## 1.3.0 - 2021-07-28
+### Changed
+- Bumped PHP requirement to 7.3
+
 ## 1.2.1 - 2021-03-06
 ### Changed
 - Performed minor refactoring to have stricter code
