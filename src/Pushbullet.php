@@ -56,7 +56,6 @@ class Pushbullet
      * Send request to Pushbullet API.
      *
      * @param  array  $params
-     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function send($params): ResponseInterface
