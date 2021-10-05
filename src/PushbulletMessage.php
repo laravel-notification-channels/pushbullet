@@ -43,8 +43,7 @@ class PushbulletMessage
     public $url;
 
     /**
-     * @param string $message
-     *
+     * @param  string  $message
      * @return static
      */
     public static function create($message): self
@@ -53,7 +52,7 @@ class PushbulletMessage
     }
 
     /**
-     * @param string $message
+     * @param  string  $message
      */
     public function __construct($message)
     {
@@ -62,7 +61,6 @@ class PushbulletMessage
 
     /**
      * @param  \NotificationChannels\Pushbullet\Targets\Targetable  $targetable
-     *
      * @return $this
      */
     public function target(Targetable $targetable): self
@@ -100,7 +98,6 @@ class PushbulletMessage
      * Set notification title.
      *
      * @param  string  $title
-     *
      * @return $this
      */
     public function title($title): self
@@ -114,7 +111,6 @@ class PushbulletMessage
      * Set notification message.
      *
      * @param  string  $message
-     *
      * @return $this
      */
     public function message($message): self
@@ -128,7 +124,6 @@ class PushbulletMessage
      * Set notification url (if notification is of `link` type).
      *
      * @param  string  $url
-     *
      * @return $this
      */
     public function url($url): self
