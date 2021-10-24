@@ -1,3 +1,5 @@
+![](https://banners.beyondco.de/Laravel%20Pushbullet%20Notifications.png?theme=light&packageManager=composer+require&packageName=laravel-notification-channels%2Fpushbullet&pattern=plus&style=style_2&description=Pushbullet+notifications+channel+for+Laravel&md=1&showWatermark=1&fontSize=100px&images=upload)
+
 # Pushbullet notification channel for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/pushbullet.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/pushbullet)
