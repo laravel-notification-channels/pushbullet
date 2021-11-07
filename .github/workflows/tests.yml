@@ -7,15 +7,15 @@ on:
 jobs:
     tests:
         runs-on: ubuntu-latest
-        continue-on-error: ${{ matrix.experimental }}
         strategy:
             fail-fast: true
             matrix:
                 php: [7.3, 7.4, 8.0, 8.1]
-                stability: [prefer-lowest, prefer-stable]
-                experimental: [false]
+                dependencies:
+                    - lowest
+                    - highest
 
-        name: Tests on PHP ${{ matrix.php }} - ${{ matrix.stability }}
+        name: Tests on PHP ${{ matrix.php }} - ${{ matrix.dependencies }}
 
         steps:
             - name: Checkout code
@@ -28,8 +28,9 @@ jobs:
                   tools: composer:v2
                   coverage: none
 
-            - name: Install dependencies
-              run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
+            - uses: "ramsey/composer-install@v1"
+              with:
+                  dependency-versions: "${{ matrix.dependencies }}"
 
             - name: Execute tests
               run: vendor/bin/phpunit --verbose
