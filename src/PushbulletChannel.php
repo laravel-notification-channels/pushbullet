@@ -25,8 +25,8 @@ class PushbulletChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
+     * @param  mixed  $notifiable
+     * @param  \Illuminate\Notifications\Notification  $notification
      *
      * @throws \NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification
      */
@@ -44,8 +44,7 @@ class PushbulletChannel
 
     /**
      * @param $notifiable
-     *
-     * @return  \NotificationChannels\Pushbullet\Targets\Targetable|void
+     * @return \NotificationChannels\Pushbullet\Targets\Targetable|void
      */
     private function getTarget($notifiable): ?Targetable
     {
