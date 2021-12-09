@@ -136,7 +136,7 @@ class PushbulletMessage
     /**
      * Get array representation of message for Pushbullet client.
      *
-     * @return array
+     * @return array{type: string, title: string, body: string, url?: string, channel_tag?: string, device_iden?: string, email?: string, }
      */
     public function toArray(): array
     {
@@ -162,7 +162,7 @@ class PushbulletMessage
     }
 
     /**
-     * @return array
+     * @return array{url?: string}
      */
     private function getUrlParameter(): array
     {

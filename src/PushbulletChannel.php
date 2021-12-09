@@ -44,7 +44,8 @@ class PushbulletChannel
 
     /**
      * @param $notifiable
-     * @return \NotificationChannels\Pushbullet\Targets\Targetable|void
+     *
+     * @return \NotificationChannels\Pushbullet\Targets\Targetable|null
      */
     private function getTarget($notifiable): ?Targetable
     {

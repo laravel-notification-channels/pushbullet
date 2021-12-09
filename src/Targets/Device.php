@@ -24,7 +24,7 @@ class Device implements Targetable
     }
 
     /**
-     * {@inheritdoc}
+     * @return array{device_iden: string}
      */
     public function getTarget(): array
     {
