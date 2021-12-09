@@ -6,16 +6,17 @@ namespace NotificationChannels\Pushbullet\Exceptions;
 
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
+use Throwable;
 
 class CouldNotSendNotification extends RuntimeException
 {
-    public static function pushbulletRespondedWithAnError(ResponseInterface $response): self
+    public static function pushbulletRespondedWithAnError(ResponseInterface $response, Throwable $previous = null): self
     {
         $code = $response->getStatusCode();
 
         $message = $response->getBody();
 
-        return new self("Pushbullet responded with error: `{$code} - {$message}`.");
+        return new self("Pushbullet responded with error: `{$code} - {$message}`.", 0, $previous);
     }
 
     public static function providedEmailIsInvalid(string $email): self
@@ -23,8 +24,8 @@ class CouldNotSendNotification extends RuntimeException
         return new self("Provided email `{$email}` of `notifiable` is not valid.");
     }
 
-    public static function couldNotCommunicateWithPushbullet(): self
+    public static function couldNotCommunicateWithPushbullet(Throwable $previous = null): self
     {
-        return new self('Could not connect to Pushbullet API.');
+        return new self('Could not connect to Pushbullet API.', 0, $previous);
     }
 }

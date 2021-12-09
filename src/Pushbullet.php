@@ -68,9 +68,9 @@ class Pushbullet
                 'headers' => $this->getHeaders(),
             ]);
         } catch (ClientException $exception) {
-            throw CouldNotSendNotification::pushbulletRespondedWithAnError($exception->getResponse());
+            throw CouldNotSendNotification::pushbulletRespondedWithAnError($exception->getResponse(), $exception);
         } catch (Exception $exception) {
-            throw CouldNotSendNotification::couldNotCommunicateWithPushbullet();
+            throw CouldNotSendNotification::couldNotCommunicateWithPushbullet($exception);
         }
     }
 }
