@@ -13,7 +13,7 @@ class Channel implements Targetable
      */
     public function __construct($channelTag)
     {
-        $this->channelTag = (string)$channelTag;
+        $this->channelTag = (string) $channelTag;
     }
 
     /**

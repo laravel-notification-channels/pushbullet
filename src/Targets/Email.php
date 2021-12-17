@@ -21,7 +21,7 @@ class Email implements Targetable
             throw CouldNotSendNotification::providedEmailIsInvalid($email);
         }
 
-        $this->email = (string)$email;
+        $this->email = (string) $email;
     }
 
     /**

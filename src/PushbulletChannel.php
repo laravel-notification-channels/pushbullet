@@ -38,7 +38,7 @@ class PushbulletChannel
     }
 
     /**
-     * @param Targetable|string $notifiable
+     * @param  Targetable|string  $notifiable
      */
     private function getTarget($notifiable): ?Targetable
     {

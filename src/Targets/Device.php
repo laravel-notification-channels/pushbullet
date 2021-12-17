@@ -13,7 +13,7 @@ class Device implements Targetable
      */
     public function __construct($device)
     {
-        $this->deviceId = (string)$device;
+        $this->deviceId = (string) $device;
     }
 
     /**
