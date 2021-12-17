@@ -18,8 +18,7 @@ class PushbulletMessage
      */
     public $type = 'note';
 
-    /** @var \NotificationChannels\Pushbullet\Targets\Targetable */
-    protected $target;
+    protected Targetable $target;
 
     /**
      * Notification title.
@@ -60,7 +59,6 @@ class PushbulletMessage
     }
 
     /**
-     * @param  \NotificationChannels\Pushbullet\Targets\Targetable  $targetable
      * @return $this
      */
     public function target(Targetable $targetable): self
@@ -153,9 +151,6 @@ class PushbulletMessage
         );
     }
 
-    /**
-     * @return bool
-     */
     private function isLink(): bool
     {
         return $this->type === self::TYPE_LINK;

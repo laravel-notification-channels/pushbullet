@@ -6,21 +6,14 @@ namespace NotificationChannels\Pushbullet\Targets;
 
 class Channel implements Targetable
 {
-    /**
-     * PushBullet channel tag.
-     *
-     * @var string
-     */
-    private $channelTag;
+    private string $channelTag;
 
     /**
-     * Set channel tag.
-     *
      * @param  string  $channelTag
      */
     public function __construct($channelTag)
     {
-        $this->channelTag = $channelTag;
+        $this->channelTag = (string)$channelTag;
     }
 
     /**

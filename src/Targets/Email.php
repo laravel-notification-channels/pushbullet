@@ -8,12 +8,7 @@ use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 
 class Email implements Targetable
 {
-    /**
-     * Recipient email.
-     *
-     * @var string
-     */
-    private $email;
+    private string $email;
 
     /**
      * Set recipient email.
@@ -26,7 +21,7 @@ class Email implements Targetable
             throw CouldNotSendNotification::providedEmailIsInvalid($email);
         }
 
-        $this->email = $email;
+        $this->email = (string)$email;
     }
 
     /**

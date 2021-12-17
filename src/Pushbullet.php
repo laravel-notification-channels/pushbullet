@@ -12,18 +12,10 @@ use Psr\Http\Message\ResponseInterface;
 
 class Pushbullet
 {
-    /** @var string */
-    private $token;
+    private string $token;
 
-    /** @var \GuzzleHttp\Client */
-    private $httpClient;
+    private HttpClient $httpClient;
 
-    /**
-     * Create small Pushbullet client.
-     *
-     * @param  string  $token
-     * @param  \GuzzleHttp\Client  $httpClient
-     */
     public function __construct(string $token, HttpClient $httpClient)
     {
         $this->token = $token;
@@ -32,8 +24,6 @@ class Pushbullet
 
     /**
      * Get url to send to Pushbullet API?
-     *
-     * @return string
      */
     private function getPushbulletUrl(): string
     {
@@ -43,7 +33,7 @@ class Pushbullet
     /**
      * Get headers for API calls.
      *
-     * @return array
+     * @return array<string, string>
      */
     private function getHeaders(): array
     {
@@ -56,7 +46,6 @@ class Pushbullet
      * Send request to Pushbullet API.
      *
      * @param  array  $params
-     * @return \Psr\Http\Message\ResponseInterface
      */
     public function send($params): ResponseInterface
     {
