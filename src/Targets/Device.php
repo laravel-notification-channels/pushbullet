@@ -6,21 +6,14 @@ namespace NotificationChannels\Pushbullet\Targets;
 
 class Device implements Targetable
 {
-    /**
-     * Recipient device id.
-     *
-     * @var string
-     */
-    private $deviceId;
+    private string $deviceId;
 
     /**
-     * Set recipient device id.
-     *
      * @param  string  $device
      */
     public function __construct($device)
     {
-        $this->deviceId = $device;
+        $this->deviceId = (string) $device;
     }
 
     /**

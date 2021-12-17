@@ -11,12 +11,8 @@ use NotificationChannels\Pushbullet\Targets\Targetable;
 
 class PushbulletChannel
 {
-    /** @var \NotificationChannels\Pushbullet\Pushbullet */
-    private $pushbullet;
+    private Pushbullet $pushbullet;
 
-    /**
-     * @param  \NotificationChannels\Pushbullet\Pushbullet  $pushbullet
-     */
     public function __construct(Pushbullet $pushbullet)
     {
         $this->pushbullet = $pushbullet;
@@ -26,7 +22,6 @@ class PushbulletChannel
      * Send the given notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Illuminate\Notifications\Notification  $notification
      *
      * @throws \NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification
      */
@@ -43,8 +38,7 @@ class PushbulletChannel
     }
 
     /**
-     * @param $notifiable
-     * @return \NotificationChannels\Pushbullet\Targets\Targetable|void
+     * @param  Targetable|string  $notifiable
      */
     private function getTarget($notifiable): ?Targetable
     {
