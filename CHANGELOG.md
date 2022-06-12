@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-notification-channels/pushbullet` will be documented in this file
 
+## 1.4.0 - 2022-06-12
+### Changed
+- Allowed Laravel 9
+
 ## 1.3.1 - 2021-12-17
 ### Changed
 - Minor CI improvements
