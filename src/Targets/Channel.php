@@ -24,7 +24,7 @@ class Channel implements Targetable
     }
 
     /**
-     * {@inheritdoc}
+     * @return array{channel_tag: string}
      */
     public function getTarget(): array
     {
