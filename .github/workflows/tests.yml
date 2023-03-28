@@ -34,4 +34,4 @@ jobs:
                   dependency-versions: "${{ matrix.dependencies }}"
 
             - name: Execute tests
-              run: vendor/bin/phpunit --verbose
+              run: vendor/bin/phpunit

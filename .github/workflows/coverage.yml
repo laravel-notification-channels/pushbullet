@@ -23,7 +23,7 @@ jobs:
             - uses: ramsey/composer-install@v1
 
             - name: Execute tests
-              run: vendor/bin/phpunit --verbose
+              run: vendor/bin/phpunit
 
             - name: Send coverage to Scrutinizer
               run: |
