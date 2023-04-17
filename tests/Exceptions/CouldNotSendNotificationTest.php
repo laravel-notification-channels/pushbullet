@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NotificationChannels\Pushbullet\Test\Exceptions;
 
+use GuzzleHttp\Psr7\Response;
 use NotificationChannels\Pushbullet\Exceptions\CouldNotSendNotification;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 
 class CouldNotSendNotificationTest extends TestCase
 {
@@ -35,15 +35,7 @@ class CouldNotSendNotificationTest extends TestCase
     /** @test */
     public function pushbullet_error_exception_can_be_created(): void
     {
-        $response = $this->createMock(ResponseInterface::class);
-
-        $response
-            ->method('getStatusCode')
-            ->willReturn(400);
-
-        $response
-            ->method('getBody')
-            ->willReturn('Oops');
+        $response = new Response(400, [], 'Oops');
 
         $exception = CouldNotSendNotification::pushbulletRespondedWithAnError($response);
 
